@@ -4,6 +4,7 @@ import { ClubListComponent } from './club-list.component';
 import { Store } from '@ngrx/store';
 import { MapService } from '../../../core/services/map.service';
 import { MockStore, provideMockStore } from '@ngrx/store/testing';
+import { MatDialog } from '@angular/material/dialog';
 
 describe('ClubListComponent', () => {
   let component: ClubListComponent;
@@ -16,7 +17,8 @@ describe('ClubListComponent', () => {
       declarations: [ClubListComponent],
       providers: [
         provideMockStore({ initialState }),
-        { provide: MapService, useValue: {} }
+        { provide: MapService, useValue: {} },
+        { provide: MatDialog, useValue: ['open'] }
       ]
     }).compileComponents();
 

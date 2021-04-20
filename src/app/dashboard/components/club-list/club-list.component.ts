@@ -13,6 +13,10 @@ import { MatTableDataSource } from '@angular/material/table';
 import { MatSort } from '@angular/material/sort';
 import { filter, takeUntil } from 'rxjs/operators';
 import { SelectionModel } from '@angular/cdk/collections';
+import { WarningModalComponent } from '../../../shared/components/warning-modal/warning-modal.component';
+import { ModalEnum } from '../../../core/models/modal.enum';
+import { MatDialog } from '@angular/material/dialog';
+import { ClubModalFormComponent } from '../club-modal-form/club-modal-form.component';
 
 @Component({
   selector: 'app-club-list',
@@ -30,7 +34,11 @@ export class ClubListComponent implements OnDestroy, AfterContentInit {
 
   @ViewChild(MatSort) sort: MatSort;
 
-  constructor(private store: Store<State>, private mapService: MapService) {}
+  constructor(
+    private store: Store<State>,
+    private mapService: MapService,
+    private dialog: MatDialog
+  ) {}
 
   ngAfterContentInit(): void {
     this.clubs$
@@ -53,8 +61,19 @@ export class ClubListComponent implements OnDestroy, AfterContentInit {
     this.mapService.flyToSelectedPoint({ lng: club.lng, lat: club.lat });
   }
 
-  openContactDialog(): void {
-    console.log('open');
+  addClub(): void {
+    const dialogRef = this.dialog.open(ClubModalFormComponent, {
+      width: '500px'
+    });
+
+    dialogRef
+      .afterClosed()
+      .pipe(
+        filter((result: ModalEnum) => {
+          return result === ModalEnum.CONFIRM;
+        })
+      )
+      .subscribe(() => console.log('dodaje'));
   }
 
   applyFilter(event: Event): void {

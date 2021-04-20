@@ -12,6 +12,7 @@ import { MapComponent } from './components/map/map.component';
 import { ClubContentComponent } from './components/club-content/club-content.component';
 import { ClubListComponent } from './components/club-list/club-list.component';
 import { ToolbarComponent } from './components/toolbar/toolbar.component';
+import { ClubModalFormComponent } from './components/club-modal-form/club-modal-form.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { ToolbarComponent } from './components/toolbar/toolbar.component';
     MapComponent,
     ClubContentComponent,
     ClubListComponent,
-    ToolbarComponent
+    ToolbarComponent,
+    ClubModalFormComponent
   ],
   imports: [
     CommonModule,

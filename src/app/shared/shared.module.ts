@@ -2,10 +2,11 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MaterialModule } from './material.module';
 import { WarningModalComponent } from './components/warning-modal/warning-modal.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [WarningModalComponent],
-  imports: [CommonModule, MaterialModule],
-  exports: [MaterialModule]
+  imports: [CommonModule, MaterialModule, ReactiveFormsModule],
+  exports: [MaterialModule, ReactiveFormsModule]
 })
 export class SharedModule {}

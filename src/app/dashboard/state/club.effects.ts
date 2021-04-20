@@ -5,12 +5,16 @@ import * as ClubActions from './club.actions';
 import { catchError, map, mergeMap } from 'rxjs/operators';
 import { of } from 'rxjs';
 import { SportClub } from '../../core/models/sport-club.interface';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Injectable()
 export class ClubEffects {
+  private snackBarDuration = 2500;
+
   constructor(
     private actions$: Actions,
-    private clubsService: SportClubsService
+    private clubsService: SportClubsService,
+    private snackBarService: MatSnackBar
   ) {}
 
   loadClubs$ = createEffect(() => {
@@ -32,8 +36,20 @@ export class ClubEffects {
       ofType(ClubActions.deleteClub),
       mergeMap((action) =>
         this.clubsService.deleteClub(action.id).pipe(
-          map(() => ClubActions.deleteClubSuccess({ id: action.id })),
-          catchError((error) => of(ClubActions.deleteClubFailure({ error })))
+          map(() => {
+            this.snackBarService.open('Success', 'Your item has been deleted', {
+              duration: this.snackBarDuration
+            });
+
+            return ClubActions.deleteClubSuccess({ id: action.id });
+          }),
+          catchError((error) => {
+            this.snackBarService.open('Error', 'Failed to delete item', {
+              duration: this.snackBarDuration
+            });
+
+            return of(ClubActions.deleteClubFailure({ error }));
+          })
         )
       )
     );
