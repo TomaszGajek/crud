@@ -1,9 +1,12 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { switchMap } from 'rxjs/operators';
+import { filter, switchMap } from 'rxjs/operators';
 import { Store } from '@ngrx/store';
 import { ClubSelectors } from '../../state';
 import { ClubActions } from '../../state';
+import { MatDialog } from '@angular/material/dialog';
+import { WarningModalComponent } from '../../../shared/components/warning-modal/warning-modal.component';
+import { ModalEnum } from '../../../core/models/modal.enum';
 
 @Component({
   selector: 'app-club-content',
@@ -20,10 +23,26 @@ export class ClubContentComponent {
   constructor(
     private router: Router,
     private activatedRoute: ActivatedRoute,
-    private store: Store
+    private store: Store,
+    private dialog: MatDialog
   ) {}
 
   updateItem(): void {}
+
+  openWarningDialog(id: number): void {
+    const dialogRef = this.dialog.open(WarningModalComponent, {
+      width: '300px'
+    });
+
+    dialogRef
+      .afterClosed()
+      .pipe(
+        filter((result: ModalEnum) => {
+          return result === ModalEnum.CONFIRM;
+        })
+      )
+      .subscribe(() => this.deleteItem(id));
+  }
 
   deleteItem(id: number): void {
     this.store.dispatch(ClubActions.deleteClub({ id }));

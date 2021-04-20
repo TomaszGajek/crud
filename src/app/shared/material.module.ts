@@ -7,16 +7,24 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatButtonModule } from '@angular/material/button';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatTableModule } from '@angular/material/table';
+import { MatSortModule } from '@angular/material/sort';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore
-const MODULES: any = [
+const MODULES = [
   MatSidenavModule,
   MatListModule,
   MatToolbarModule,
   MatIconModule,
   MatMenuModule,
-  MatButtonModule
+  MatButtonModule,
+  MatDialogModule,
+  MatTableModule,
+  MatSortModule,
+  MatFormFieldModule,
+  MatInputModule
 ];
 
 @NgModule({

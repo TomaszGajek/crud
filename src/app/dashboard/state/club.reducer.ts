@@ -29,6 +29,7 @@ export const clubReducer = createReducer<ClubState>(
     (state, action): ClubState => {
       return {
         ...state,
+        clubs: null,
         error: action.error
       };
     }

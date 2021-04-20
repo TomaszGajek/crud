@@ -81,11 +81,10 @@ export class MapService {
     this.handleMarkerClickEvent();
   }
 
-  flyToSelectedPoint(localization: Localization): void {
+  flyToSelectedPoint({ lng, lat }: Localization): void {
     this.map.fire('flyend');
-
     this.map.flyTo({
-      center: [localization.lat, localization.lng],
+      center: [lng, lat],
       zoom: 10
     });
   }

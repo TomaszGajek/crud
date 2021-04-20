@@ -3,5 +3,6 @@ export interface SportClub {
   name: string;
   lat: number;
   lng: number;
+  category: string;
   description: string;
 }
