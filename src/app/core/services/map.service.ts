@@ -30,8 +30,6 @@ export class MapService {
       center: [lng, lat]
     });
 
-    console.log('init');
-
     this.createMarkers(items);
     this.createPopups();
   }
@@ -50,7 +48,10 @@ export class MapService {
             },
             geometry: {
               type: 'Point',
-              coordinates: [item.lng, item.lat]
+              coordinates: [
+                item.localization.center[0],
+                item.localization.center[1]
+              ]
             }
           }))
         }

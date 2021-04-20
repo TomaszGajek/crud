@@ -13,7 +13,6 @@ import { MatTableDataSource } from '@angular/material/table';
 import { MatSort } from '@angular/material/sort';
 import { filter, takeUntil } from 'rxjs/operators';
 import { SelectionModel } from '@angular/cdk/collections';
-import { WarningModalComponent } from '../../../shared/components/warning-modal/warning-modal.component';
 import { ModalEnum } from '../../../core/models/modal.enum';
 import { MatDialog } from '@angular/material/dialog';
 import { ClubModalFormComponent } from '../club-modal-form/club-modal-form.component';
@@ -58,7 +57,10 @@ export class ClubListComponent implements OnDestroy, AfterContentInit {
   }
 
   handleSelectedClub(club: SportClub): void {
-    this.mapService.flyToSelectedPoint({ lng: club.lng, lat: club.lat });
+    this.mapService.flyToSelectedPoint({
+      lng: club.localization.center[0],
+      lat: club.localization.center[1]
+    });
   }
 
   addClub(): void {

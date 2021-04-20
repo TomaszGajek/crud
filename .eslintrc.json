@@ -17,6 +17,7 @@
         "plugin:prettier/recommended"
       ],
       "rules": {
+        "@typescript-eslint/no-unsafe-assignment": "off",
         "@typescript-eslint/unbound-method": "off",
         "@angular-eslint/component-selector": [
           "error",

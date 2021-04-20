@@ -3,66 +3,52 @@
     {
       "id": 1,
       "name": "Stomil Grudziądz",
-      "lng": 18.77389645624233,
-      "lat": 53.48564265854221,
+      "localization": {
+        "center": [18.77389645624233, 53.48564265854221],
+        "place_name": "Test"
+      },
       "category": "football",
       "description": "Klub piłkarski założony w 1925 roku. Sekcje dla różnych grup wiekowych"
     },
     {
       "id": 2,
       "name": "Czarni Słupsk",
-      "lng": 17.024825386957286,
-      "lat": 54.462648351482144,
+      "localization": {
+        "center": [17.024825386957286, 54.462648351482144],
+        "place_name": "Test"
+      },
       "category": "basketball",
       "description": "Klub koszykarski. Sekcje dla amatorów, różne grupy wiekowe"
     },
     {
       "id": 3,
       "name": "Lechia Gdańsk",
-      "lng": 18.625222556266642,
-      "lat": 54.367820237986386,
+      "localization": {
+        "center": [18.625222556266642, 54.367820237986386],
+        "place_name": "Test"
+      },
       "category": "football",
       "description": "Klub piłkarski założony w 1945 roku."
     },
     {
       "id": 4,
       "name": "Arka Gdynia",
-      "lng": 18.53119315627023,
-      "lat": 54.49738042443427,
+      "localization": {
+        "center": [18.53119315627023, 54.49738042443427],
+        "place_name": "Test"
+      },
       "category": "football",
       "description": "Klub piłkarski grający w 1 lidze, założony w 1929 roku."
     },
     {
       "name": "Olimpia Grudziądz",
-      "category": "basketball",
-      "description": "asdasdasd",
-      "lat": 53.482779,
-      "lng": 18.76186525,
-      "id": 5
-    },
-    {
-      "name": "Zaspa Champion",
-      "category": "boxing",
-      "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
-      "lat": 54.393085,
-      "lng": 18.583223,
-      "id": 6
-    },
-    {
-      "name": "Szczecin Pogoń",
       "category": "football",
-      "description": "apsodkasd  padksaposkd  paoskd",
-      "lat": 53.3998004,
-      "lng": 14.6779183,
-      "id": 7
-    },
-    {
-      "name": "Jakiś Klub",
-      "category": "boxing",
-      "description": "asdasdasd ",
-      "lat": 50.0822863,
-      "lng": 19.9589234,
-      "id": 8
+      "description": "asdasad",
+      "localization": {
+        "place_name": "Marszałka Józefa Piłsudskiego 12, 86-300 Grudziądz, Kuyavian-Pomeranian Voivodeship, Poland",
+        "center": [18.756465, 53.488816]
+      },
+      "id": 5
     }
   ]
 }
