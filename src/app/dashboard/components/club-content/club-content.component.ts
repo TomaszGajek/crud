@@ -7,6 +7,8 @@ import { ClubActions } from '../../state';
 import { MatDialog } from '@angular/material/dialog';
 import { WarningModalComponent } from '../../../shared/components/warning-modal/warning-modal.component';
 import { ModalEnum } from '../../../core/models/modal.enum';
+import { SportClub } from '../../../core/models/sport-club.interface';
+import { ClubModalFormComponent } from '../club-modal-form/club-modal-form.component';
 
 @Component({
   selector: 'app-club-content',
@@ -28,6 +30,13 @@ export class ClubContentComponent {
   ) {}
 
   updateItem(): void {}
+
+  openFormDialog(club: SportClub): void {
+    this.dialog.open(ClubModalFormComponent, {
+      width: '500px',
+      data: club
+    });
+  }
 
   openWarningDialog(id: number): void {
     const dialogRef = this.dialog.open(WarningModalComponent, {

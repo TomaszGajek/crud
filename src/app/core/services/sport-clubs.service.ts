@@ -21,6 +21,12 @@ export class SportClubsService {
       .pipe(catchError(this.handleError));
   }
 
+  addClub(club: SportClub): Observable<SportClub> {
+    return this.http
+      .post<SportClub>(`${this.url}`, club)
+      .pipe(catchError(this.handleError));
+  }
+
   private handleError(err: HttpErrorResponse) {
     const errorMessage = `Backend returned code ${err.status}: ${err.message}`;
     console.log(errorMessage);

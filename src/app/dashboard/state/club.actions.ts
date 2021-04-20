@@ -13,6 +13,21 @@ export const loadClubsFailure = createAction(
   props<{ error: string }>()
 );
 
+export const addClub = createAction(
+  '[Sport Clubs] Add Club',
+  props<{ club: SportClub }>()
+);
+
+export const addClubSuccess = createAction(
+  '[Sport Clubs] Add Success',
+  props<{ club: SportClub }>()
+);
+
+export const addClubFailure = createAction(
+  '[Sport Clubs] Add Failure',
+  props<{ error: string }>()
+);
+
 export const deleteClub = createAction(
   '[Sport Clubs] Delete',
   props<{ id: number }>()

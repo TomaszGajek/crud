@@ -14,6 +14,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatSelectModule } from '@angular/material/select';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
 
 const MODULES = [
   MatSidenavModule,
@@ -28,7 +29,8 @@ const MODULES = [
   MatFormFieldModule,
   MatInputModule,
   MatSnackBarModule,
-  MatSelectModule
+  MatSelectModule,
+  MatAutocompleteModule
 ];
 
 @NgModule({

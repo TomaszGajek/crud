@@ -1,5 +1,5 @@
 <mat-toolbar color="primary">
-  <h2 mat-dialog-title>Add Club</h2>
+  <h2 mat-dialog-title>{{title}}</h2>
 </mat-toolbar>
 <mat-dialog-content>
   <form [formGroup]="form" (ngSubmit)="submitForm()">
@@ -16,6 +16,20 @@
     <mat-form-field appearance="fill">
       <mat-label>Club Description</mat-label>
       <textarea matInput formControlName="description"></textarea>
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <mat-label>Choose localization</mat-label>
+      <input type="text"
+             placeholder="Pick one"
+             aria-label="Text"
+             matInput
+             formControlName="localization"
+             [matAutocomplete]="auto" required>
+      <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+          <mat-option *ngFor="let option of options$ | async" [value]="option">
+            {{ option.place_name }}
+          </mat-option>
+      </mat-autocomplete>
     </mat-form-field>
   </form>
 </mat-dialog-content>

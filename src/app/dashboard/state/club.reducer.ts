@@ -55,5 +55,16 @@ export const clubReducer = createReducer<ClubState>(
         error: action.error
       };
     }
+  ),
+  on(
+    ClubActions.addClubSuccess,
+    (state, action): ClubState => {
+      const clubs: SportClub[] = [...state.clubs, action.club];
+
+      return {
+        ...state,
+        clubs
+      };
+    }
   )
 );

@@ -31,6 +31,38 @@
       "lat": 54.49738042443427,
       "category": "football",
       "description": "Klub piłkarski grający w 1 lidze, założony w 1929 roku."
+    },
+    {
+      "name": "Olimpia Grudziądz",
+      "category": "basketball",
+      "description": "asdasdasd",
+      "lat": 53.482779,
+      "lng": 18.76186525,
+      "id": 5
+    },
+    {
+      "name": "Zaspa Champion",
+      "category": "boxing",
+      "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+      "lat": 54.393085,
+      "lng": 18.583223,
+      "id": 6
+    },
+    {
+      "name": "Szczecin Pogoń",
+      "category": "football",
+      "description": "apsodkasd  padksaposkd  paoskd",
+      "lat": 53.3998004,
+      "lng": 14.6779183,
+      "id": 7
+    },
+    {
+      "name": "Jakiś Klub",
+      "category": "boxing",
+      "description": "asdasdasd ",
+      "lat": 50.0822863,
+      "lng": 19.9589234,
+      "id": 8
     }
   ]
 }

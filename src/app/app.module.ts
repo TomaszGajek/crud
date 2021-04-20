@@ -7,8 +7,6 @@ import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
-import { HTTP_INTERCEPTORS } from '@angular/common/http';
-import { ContentTypeInterceptor } from './core/interceptors/content-type.interceptor';
 
 @NgModule({
   declarations: [AppComponent],
@@ -21,13 +19,6 @@ import { ContentTypeInterceptor } from './core/interceptors/content-type.interce
       maxAge: 25,
       logOnly: environment.production
     })
-  ],
-  providers: [
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: ContentTypeInterceptor,
-      multi: true
-    }
   ],
   bootstrap: [AppComponent]
 })
