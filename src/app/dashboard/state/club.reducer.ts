@@ -34,7 +34,7 @@ export const clubReducer = createReducer<ClubState>(
     }
   ),
   on(
-    ClubActions.deleteClub,
+    ClubActions.deleteClubSuccess,
     (state, action): ClubState => {
       const clubs: SportClub[] = state.clubs.filter(
         (club) => club.id !== action.id
@@ -43,6 +43,15 @@ export const clubReducer = createReducer<ClubState>(
       return {
         ...state,
         clubs
+      };
+    }
+  ),
+  on(
+    ClubActions.deleteClubFailure,
+    (state, action): ClubState => {
+      return {
+        ...state,
+        error: action.error
       };
     }
   )

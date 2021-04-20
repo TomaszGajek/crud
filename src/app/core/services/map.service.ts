@@ -30,6 +30,8 @@ export class MapService {
       center: [lng, lat]
     });
 
+    console.log('init');
+
     this.createMarkers(items);
     this.createPopups();
   }

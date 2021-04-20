@@ -8,7 +8,9 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "start:proxy": "ng serve --proxy-config proxy.conf.json",
+    "start:server": "concurrently --kill-others \"json-server --watch db.json\" \"npm run start:proxy\""
   },
   "private": true,
   "dependencies": {
@@ -44,6 +46,7 @@
     "@types/node": "^12.11.1",
     "@typescript-eslint/eslint-plugin": "4.16.1",
     "@typescript-eslint/parser": "4.16.1",
+    "concurrently": "^6.0.2",
     "eslint": "^7.24.0",
     "eslint-config-prettier": "^8.1.0",
     "eslint-plugin-import": "2.22.1",

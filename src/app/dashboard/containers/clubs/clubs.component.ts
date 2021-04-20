@@ -3,7 +3,6 @@ import { Store } from '@ngrx/store';
 import { ClubSelectors, ClubActions, State } from '../../state';
 import { Observable } from 'rxjs';
 import { SportClub } from '../../../core/models/sport-club.interface';
-import { MapService } from '../../../core/services/map.service';
 
 @Component({
   selector: 'app-clubs',

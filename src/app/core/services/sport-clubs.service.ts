@@ -1,54 +1,39 @@
 import { Injectable } from '@angular/core';
 import { SportClub } from '../models/sport-club.interface';
-import { EMPTY, Observable } from 'rxjs';
-import { of } from 'rxjs';
-import { map } from 'rxjs/operators';
-
-const clubsMock: SportClub[] = [
-  {
-    id: 1,
-    name: 'Stomil Grudziądz',
-    lng: 18.77389645624233,
-    lat: 53.48564265854221,
-    description:
-      'Klub piłkarski założony w 1925 roku. Sekcje dla różnych grup wiekowych'
-  },
-  {
-    id: 2,
-    name: 'Czarni Słupsk',
-    lng: 17.024825386957286,
-    lat: 54.462648351482144,
-    description: 'Klub koszykarski. Sekcje dla amatorów, różne grupy wiekowe'
-  },
-  {
-    id: 3,
-    name: 'Lechia Gdańsk',
-    lng: 18.625222556266642,
-    lat: 54.367820237986386,
-    description: 'Klub piłkarski założony w 1945 roku.'
-  },
-  {
-    id: 4,
-    name: 'Arka Gdynia',
-    lng: 18.53119315627023,
-    lat: 54.49738042443427,
-    description: 'Klub piłkarski grający w 1 lidze, założony w 1929 roku.'
-  }
-];
+import { EMPTY, Observable, throwError } from 'rxjs';
+import { catchError, map, tap } from 'rxjs/operators';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SportClubsService {
-  sportClubs$: Observable<SportClub[]> = of(clubsMock);
-
-  selectedClub(id: number): Observable<SportClub> {
-    return this.sportClubs$.pipe(
-      map((clubs) => clubs.find((club) => club.id === id))
+  url = '/clubs';
+  sportClubs$: Observable<SportClub[]> = this.http
+    .get<SportClub[]>(this.url)
+    .pipe(
+      tap((data) => console.log(JSON.stringify(data))),
+      catchError(this.handleError)
     );
-  }
+
+  constructor(private http: HttpClient) {}
 
   deleteClub(id: number): Observable<null> {
-    return EMPTY;
+    return this.http
+      .delete<null>(`${this.url}/${id}`)
+      .pipe(catchError(this.handleError));
+  }
+
+  private handleError(err: any) {
+    let errorMessage: string;
+
+    if (err.error instanceof ErrorEvent) {
+      errorMessage = `An error occurred: ${err.error.message}`;
+    } else {
+      errorMessage = `Backend returned code ${err.status}: ${err.body.error}`;
+    }
+    console.error(err);
+
+    return throwError(errorMessage);
   }
 }
