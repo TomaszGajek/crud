@@ -1,0 +1,13 @@
+<mat-drawer-container *ngIf="clubs$ | async as clubs; else errorContainer" class="sport-clubs-container">
+  <mat-drawer mode="side" opened class="sidenav">
+    <mat-nav-list>
+      <router-outlet></router-outlet>
+    </mat-nav-list>
+  </mat-drawer>
+  <mat-drawer-content class="map-content">
+    <app-map [clubs]="clubs"></app-map>
+  </mat-drawer-content>
+</mat-drawer-container>
+<ng-template #errorContainer>
+  <p>{{ errorMessage$ | async }}</p>
+</ng-template>

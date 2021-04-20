@@ -1,19 +1,21 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SportclubsComponent } from './sportclubs.component';
+import { MapComponent } from './map.component';
+import { Router } from '@angular/router';
 
-describe('SportclubsComponent', () => {
-  let component: SportclubsComponent;
-  let fixture: ComponentFixture<SportclubsComponent>;
+describe('MapComponent', () => {
+  let component: MapComponent;
+  let fixture: ComponentFixture<MapComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [SportclubsComponent]
+      declarations: [MapComponent],
+      providers: [{ provide: Router, useValue: {} }]
     }).compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(SportclubsComponent);
+    fixture = TestBed.createComponent(MapComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

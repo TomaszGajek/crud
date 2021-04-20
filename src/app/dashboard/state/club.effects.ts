@@ -26,4 +26,16 @@ export class ClubEffects {
       catchError((error: string) => of(ClubActions.loadClubsFailure({ error })))
     );
   });
+
+  deleteClubs$ = createEffect(() => {
+    return this.actions$.pipe(
+      ofType(ClubActions.deleteClub),
+      mergeMap((action) =>
+        this.clubsService.deleteClub(action.id).pipe(
+          map(() => ClubActions.deleteClubSuccess({ id: action.id })),
+          catchError((error) => of(ClubActions.deleteClubFailure({ error })))
+        )
+      )
+    );
+  });
 }

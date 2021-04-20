@@ -1,0 +1,9 @@
+<app-toolbar [title]="title">
+    <button
+      (click)="openContactDialog()"
+      mat-menu-item
+    >Add Club</button>
+</app-toolbar>
+<mat-list-item *ngFor="let club of clubs$ | async">
+  <app-club [club]="club" (selectedClub)="handleSelectedClub($event)"></app-club>
+</mat-list-item>

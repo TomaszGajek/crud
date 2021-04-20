@@ -32,5 +32,18 @@ export const clubReducer = createReducer<ClubState>(
         error: action.error
       };
     }
+  ),
+  on(
+    ClubActions.deleteClub,
+    (state, action): ClubState => {
+      const clubs: SportClub[] = state.clubs.filter(
+        (club) => club.id !== action.id
+      );
+
+      return {
+        ...state,
+        clubs
+      };
+    }
   )
 );

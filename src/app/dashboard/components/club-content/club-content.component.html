@@ -1,0 +1,17 @@
+<div *ngIf="selectedClub$ | async as selectedClub">
+  <app-toolbar [title]="selectedClub.name">
+    <button
+      (click)="updateItem()"
+      mat-menu-item
+    >Edit Club</button>
+    <button
+      (click)="deleteItem(selectedClub.id)"
+      mat-menu-item
+    >Delete Club</button>
+    <button
+      mat-menu-item
+    ><a routerLink="">Return</a></button>
+  </app-toolbar>
+  <p>{{ selectedClub.description }}</p>
+</div>
+
