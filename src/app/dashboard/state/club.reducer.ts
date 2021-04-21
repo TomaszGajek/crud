@@ -1,4 +1,4 @@
-import { SportClub } from '../../core/models/sport-club.interface';
+import { SportClub } from '@core/models/sport-club.interface';
 import { createReducer, on } from '@ngrx/store';
 import * as ClubActions from './club.actions';
 

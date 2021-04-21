@@ -1,7 +1,7 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
-import { SportCategories } from '../../../core/models/sport-categories.enum';
+import { SportCategories } from '@core/models/sport-categories.enum';
 import {
   debounceTime,
   distinctUntilChanged,
@@ -10,12 +10,12 @@ import {
   switchMap
 } from 'rxjs/operators';
 import { Observable } from 'rxjs';
-import { LocalizationResponse } from '../../../core/models/localization-response.interface';
-import { MapSearchService } from '../../../core/services/map-search.service';
+import { LocalizationResponse } from '@core/models/localization-response.interface';
+import { MapSearchService } from '@core/services/map-search.service';
 import { Store } from '@ngrx/store';
-import { SportClub } from '../../../core/models/sport-club.interface';
+import { SportClub } from '@core/models/sport-club.interface';
 import { ClubActions } from '../../state';
-import { Localization } from '../../../core/models/localization.interface';
+import { Localization } from '@core/models/localization.interface';
 
 @Component({
   selector: 'app-club-modal-form',

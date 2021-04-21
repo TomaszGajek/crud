@@ -1,5 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
 
+$primary-background: #673ab7;
+$primary-color: rgba(0, 0, 0, 0.87);
+
 html,
 body {
   height: 100%;
@@ -9,17 +12,29 @@ body {
   font-family: Roboto, 'Helvetica Neue', sans-serif;
 }
 
-table {
+.mat-table {
   width: 100%;
 }
 
 .mat-row {
   &:hover {
-    background: #eee;
+    background: lighten($primary-background, 40%);
+    cursor: pointer;
+
+    .mat-cell,
+    .mat-footer-cell {
+      color: #fff;
+    }
   }
 
   &.highlighted {
-    background: #999;
+    background: lighten($primary-background, 20%);
+
+    .mat-cell,
+    .mat-footer-cell {
+      color: #fff;
+      cursor: pointer;
+    }
   }
 }
 
@@ -29,4 +44,19 @@ table {
 
 .mat-toolbar {
   margin-bottom: 20px;
+}
+
+.custom-dialog-container .mat-dialog-container {
+  width: 500px;
+}
+
+.filter-wrapper {
+  .mat-form-field-flex {
+    padding: 0 20px;
+  }
+}
+
+.mat-menu-content-link {
+  color: $primary-color;
+  text-decoration: none;
 }

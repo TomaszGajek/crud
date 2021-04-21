@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
-import { ModalEnum } from '../../../core/models/modal.enum';
+import { ModalEnum } from '@core/models/modal.enum';
 
 @Component({
   selector: 'app-warning-modal',

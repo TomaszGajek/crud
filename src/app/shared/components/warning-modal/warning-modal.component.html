@@ -1,6 +1,8 @@
-<h2 mat-dialog-title>Warning</h2>
+<mat-toolbar color="warn">
+  <h2 mat-dialog-title>Warning</h2>
+</mat-toolbar>
 <mat-dialog-content>
-  The delete action is irreversible
+  <p>The delete action is irreversible.</p>
 </mat-dialog-content>
 <mat-dialog-actions>
   <button mat-button color="primary" (click)="delete()">

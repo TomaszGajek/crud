@@ -7,13 +7,13 @@ import {
 import { Store } from '@ngrx/store';
 import { ClubSelectors, State } from '../../state';
 import { Observable, Subject } from 'rxjs';
-import { SportClub } from '../../../core/models/sport-club.interface';
-import { MapService } from '../../../core/services/map.service';
+import { SportClub } from '@core/models/sport-club.interface';
+import { MapService } from '@core/services/map.service';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatSort } from '@angular/material/sort';
 import { filter, takeUntil } from 'rxjs/operators';
 import { SelectionModel } from '@angular/cdk/collections';
-import { ModalEnum } from '../../../core/models/modal.enum';
+import { ModalEnum } from '@core/models/modal.enum';
 import { MatDialog } from '@angular/material/dialog';
 import { ClubModalFormComponent } from '../club-modal-form/club-modal-form.component';
 
@@ -65,7 +65,7 @@ export class ClubListComponent implements OnDestroy, AfterContentInit {
 
   addClub(): void {
     const dialogRef = this.dialog.open(ClubModalFormComponent, {
-      width: '500px'
+      panelClass: 'custom-dialog-container'
     });
 
     dialogRef

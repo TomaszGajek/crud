@@ -10,8 +10,14 @@
     >Delete Club</button>
     <button
       mat-menu-item
-    ><a routerLink="">Return</a></button>
+    ><a class="mat-menu-content-link" routerLink="">Return</a></button>
   </app-toolbar>
-  <p>{{ selectedClub.description }}</p>
+  <mat-card class="mat-elevation-z">
+    <mat-card-title class="mat-card-margin-bottom-20">category: {{ selectedClub.category }}</mat-card-title>
+    <mat-card-subtitle>{{ selectedClub.localization.place_name }}</mat-card-subtitle>
+    <mat-card-content>
+      <p>{{ selectedClub.description }}</p>
+    </mat-card-content>
+  </mat-card>
 </div>
 
