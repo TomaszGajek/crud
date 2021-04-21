@@ -55,8 +55,6 @@ export class ClubModalFormComponent implements OnInit {
       filter((value) => !!value),
       switchMap((value: string) => this.mapSearchService.querySearch(value))
     );
-
-    this.form.valueChanges.subscribe((x) => console.log(this.form));
   }
 
   createForm(): void {
