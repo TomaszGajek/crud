@@ -1,5 +1,12 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {
+  AbstractControl,
+  FormBuilder,
+  FormControl,
+  FormControlName,
+  FormGroup,
+  Validators
+} from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { SportCategories } from '@core/models/sport-categories.enum';
 import {
@@ -16,6 +23,7 @@ import { SportClub } from '@core/models/sport-club.interface';
 import { ClubActions } from '../../state';
 import { Localization } from '@core/models/localization.interface';
 import { MapSearchService } from '@app/dashboard/services/map-search.service';
+import { localizationValidator } from '@core/validators/localization.validator';
 
 @Component({
   selector: 'app-club-modal-form',
@@ -55,6 +63,8 @@ export class ClubModalFormComponent implements OnInit {
       filter((value) => !!value),
       switchMap((value: string) => this.mapSearchService.querySearch(value))
     );
+
+    this.form.valueChanges.subscribe(() => console.log(this.form));
   }
 
   createForm(): void {
@@ -62,7 +72,7 @@ export class ClubModalFormComponent implements OnInit {
       name: [this.club ? this.club.name : '', Validators.required],
       category: [this.club ? this.club.category : '', Validators.required],
       description: [this.club ? this.club.description : ''],
-      localization: ['', Validators.required]
+      localization: ['', [Validators.required, localizationValidator()]]
     });
 
     if (this.club) {

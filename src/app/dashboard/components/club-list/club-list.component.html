@@ -2,10 +2,21 @@
     <button
       (click)="addClub()"
       mat-menu-item
-    >Add Club</button>
+    >
+      <mat-icon>library_add</mat-icon>
+      Add Club
+    </button>
+  <button
+    (click)="closeDrawer()"
+    mat-menu-item
+    class="close-drawer-button"
+  >
+    <mat-icon>close</mat-icon>
+    Close menu
+  </button>
 </app-toolbar>
 
-<div>
+<div class="clubs-wrapper">
   <mat-form-field class="filter-wrapper">
     <mat-label>Filter</mat-label>
     <input matInput (keyup)="applyFilter($event)" placeholder="Write value" #input>

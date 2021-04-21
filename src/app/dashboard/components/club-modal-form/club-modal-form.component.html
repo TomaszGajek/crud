@@ -3,21 +3,29 @@
 </mat-toolbar>
 <mat-dialog-content>
   <form [formGroup]="form" (ngSubmit)="submitForm()">
-    <mat-form-field appearance="fill">
+    <mat-form-field appearance="outline">
       <mat-label>Club Name</mat-label>
       <input matInput formControlName="name" required>
+      <mat-error
+        *ngIf="form.controls['name'].hasError('required')">
+        Club name is required
+      </mat-error>
     </mat-form-field>
-    <mat-form-field appearance="fill">
+    <mat-form-field appearance="outline">
       <mat-label>Categories</mat-label>
       <mat-select formControlName="category" required>
         <mat-option *ngFor="let category of categories" [value]="category">{{category}}</mat-option>
       </mat-select>
+      <mat-error
+        *ngIf="form.controls['category'].hasError('required')">
+        Select a category
+      </mat-error>
     </mat-form-field>
-    <mat-form-field appearance="fill">
+    <mat-form-field appearance="outline">
       <mat-label>Club Description</mat-label>
       <textarea matInput formControlName="description"></textarea>
     </mat-form-field>
-    <mat-form-field class="example-full-width">
+    <mat-form-field>
       <mat-label>Choose localization</mat-label>
       <input type="text"
              placeholder="Pick one"
@@ -30,6 +38,10 @@
             {{ option.place_name }}
           </mat-option>
       </mat-autocomplete>
+      <mat-error
+        *ngIf="form.controls['localization'].hasError('required')">
+        Select a localization
+      </mat-error>
     </mat-form-field>
   </form>
 </mat-dialog-content>

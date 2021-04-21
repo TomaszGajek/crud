@@ -3,15 +3,24 @@
     <button
       (click)="openFormDialog(selectedClub)"
       mat-menu-item
-    >Edit Club</button>
+    >
+      <mat-icon>mode_edit_outline</mat-icon>
+      Edit Club
+    </button>
     <button
       (click)="openWarningDialog(selectedClub.id)"
       mat-menu-item
-    >Delete Club</button>
+    >
+      <mat-icon>delete</mat-icon>
+      Delete Club
+    </button>
     <button
       mat-menu-item
       (click)="return()"
-    >Return</button>
+    >
+      <mat-icon>chevron_left</mat-icon>
+      Return
+    </button>
   </app-toolbar>
   <mat-card class="mat-elevation-z">
     <mat-card-title class="mat-card-margin-bottom-20">category: {{ selectedClub.category }}</mat-card-title>

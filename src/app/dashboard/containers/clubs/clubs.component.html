@@ -1,6 +1,10 @@
-<mat-drawer-container *ngIf="clubs$ | async as clubs; else errorContainer" class="sport-clubs-container">
-  <mat-drawer mode="side" opened class="sidenav">
-    <mat-nav-list>
+<mat-drawer-container *ngIf="clubs$ | async as clubs; else errorContainer" class="sport-clubs-container" autosize>
+  <mat-drawer
+    #drawer
+    [opened]="(isScreenSmall$ | async) === false"
+    [mode]="(isScreenSmall$ | async) ? 'over' : 'side'"
+    class="sidenav">
+    <mat-nav-list class="sport-clubs-list">
       <div [@routeAnimations]="prepareRoute(outlet)">
         <router-outlet #outlet="outlet"></router-outlet>
       </div>
@@ -8,6 +12,9 @@
   </mat-drawer>
   <mat-drawer-content class="map-content">
     <app-map [clubs]="clubs"></app-map>
+    <button mat-button (click)="drawer.toggle()" class="button-drawer">
+      <mat-icon>more_vert</mat-icon>
+    </button>
   </mat-drawer-content>
 </mat-drawer-container>
 <ng-template #errorContainer>

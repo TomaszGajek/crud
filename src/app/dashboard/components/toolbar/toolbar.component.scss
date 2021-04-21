@@ -1,11 +1,11 @@
 $iconSize: 50px;
 
-mat-toolbar {
+.mat-toolbar {
   display: flex;
   justify-content: space-between;
 }
 
-mat-icon {
+.mat-icon {
   font-size: 30px;
   color: #fff;
   background: transparent;

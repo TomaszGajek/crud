@@ -1,10 +1,9 @@
 <mat-toolbar color="primary">
   {{ title }}
-  <span class="example-spacer"></span>
   <button mat-button [matMenuTriggerFor]="menu">
-    <mat-icon class="example-icon">more_vert</mat-icon>
+    <mat-icon>more_vert</mat-icon>
   </button>
-  <mat-menu #menu="matMenu">
+  <mat-menu #menu="matMenu" class="mat-toolbar-menu">
     <ng-content></ng-content>
   </mat-menu>
 </mat-toolbar>

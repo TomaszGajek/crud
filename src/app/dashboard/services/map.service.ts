@@ -4,6 +4,7 @@ import { environment } from '../../../environments/environment';
 import { SportClub } from '@core/models/sport-club.interface';
 import { Router } from '@angular/router';
 import { Coordinates } from '@core/models/coordinates.interface';
+import { DrawerService } from '@app/dashboard/services/drawer.service';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +14,7 @@ export class MapService {
   private popup: mapboxgl.Popup;
   private style = 'mapbox://styles/mapbox/streets-v11';
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private drawerService: DrawerService) {}
 
   init(
     lng: number,
@@ -100,7 +101,6 @@ export class MapService {
   handleMarkerMouseEnterEvent(): void {
     this.map.on('mouseenter', 'places', (e) => {
       const coordinates: Coordinates = e.lngLat;
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
       const description: string = e.features[0].properties.description;
 
       this.map.getCanvas().style.cursor = 'pointer';
@@ -120,10 +120,9 @@ export class MapService {
   }
 
   handleMarkerClickEvent(): void {
-    this.map.on(
-      'click',
-      'places',
-      (e) => void this.router.navigate(['', e.features[0].properties.id])
-    );
+    this.map.on('click', 'places', (e) => {
+      this.drawerService.setDrawerClosed(false);
+      void this.router.navigate(['', e.features[0].properties.id]);
+    });
   }
 }

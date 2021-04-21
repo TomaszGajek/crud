@@ -64,4 +64,14 @@ body {
 
 textarea.mat-input-element {
   height: 200px;
+  line-height: 1.4;
+}
+
+.mat-menu-panel.mat-toolbar-menu {
+  padding: 0;
+  min-height: 0;
+
+  .mat-menu-content:not(:empty) {
+    padding: 0;
+  }
 }

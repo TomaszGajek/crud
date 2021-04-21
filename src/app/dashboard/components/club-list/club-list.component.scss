@@ -1,0 +1,11 @@
+.clubs-wrapper {
+  padding: 16px;
+}
+
+.close-drawer-button {
+  display: none;
+
+  @media (max-width: 720px) {
+    display: block;
+  }
+}
