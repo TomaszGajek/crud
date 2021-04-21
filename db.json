@@ -23,22 +23,22 @@
     {
       "id": 3,
       "name": "Lechia Gdańsk",
-      "localization": {
-        "center": [18.625222556266642, 54.367820237986386],
-        "place_name": "Test"
-      },
       "category": "football",
-      "description": "Klub piłkarski założony w 1945 roku."
+      "description": "Klub piłkarski założony w 1945 roku.",
+      "localization": {
+        "place_name": "Edwina Symonowicza, 80-221 Gdańsk, Pomeranian Voivodeship, Poland",
+        "center": [18.6263693, 54.3683822]
+      }
     },
     {
       "id": 4,
       "name": "Arka Gdynia",
-      "localization": {
-        "center": [18.53119315627023, 54.49738042443427],
-        "place_name": "Test"
-      },
       "category": "football",
-      "description": "Klub piłkarski grający w 1 lidze, założony w 1929 roku."
+      "description": "Klub piłkarski grający w 1 lidze, założony w 1929 roku.",
+      "localization": {
+        "place_name": "Narodowy Stadion Rugby, Kazimierza Górskiego 10, Gdynia, Pomeranian Voivodeship 81-304, Poland",
+        "center": [18.531178, 54.4973155]
+      }
     },
     {
       "id": 5,

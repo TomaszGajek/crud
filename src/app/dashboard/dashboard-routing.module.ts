@@ -8,9 +8,14 @@ const routes: Routes = [
   {
     path: '',
     component: ClubsComponent,
+    data: { animation: 'one' },
     children: [
-      { path: ':id', component: ClubContentComponent },
-      { path: '', component: ClubListComponent }
+      {
+        path: ':id',
+        component: ClubContentComponent,
+        data: { animation: 'one' }
+      },
+      { path: '', component: ClubListComponent, data: { animation: 'two' } }
     ]
   },
   { path: '**', redirectTo: '' }

@@ -2,7 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ClubListComponent } from './club-list.component';
 import { Store } from '@ngrx/store';
-import { MapService } from '../../../core/services/map.service';
+import { MapService } from '../../services/map.service';
 import { MockStore, provideMockStore } from '@ngrx/store/testing';
 import { MatDialog } from '@angular/material/dialog';
 

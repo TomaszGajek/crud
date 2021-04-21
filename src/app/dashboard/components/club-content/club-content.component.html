@@ -10,7 +10,8 @@
     >Delete Club</button>
     <button
       mat-menu-item
-    ><a class="mat-menu-content-link" routerLink="">Return</a></button>
+      (click)="return()"
+    >Return</button>
   </app-toolbar>
   <mat-card class="mat-elevation-z">
     <mat-card-title class="mat-card-margin-bottom-20">category: {{ selectedClub.category }}</mat-card-title>

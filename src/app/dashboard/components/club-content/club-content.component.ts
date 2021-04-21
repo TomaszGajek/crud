@@ -9,6 +9,7 @@ import { WarningModalComponent } from '@shared/components/warning-modal/warning-
 import { ModalEnum } from '@core/models/modal.enum';
 import { SportClub } from '@core/models/sport-club.interface';
 import { ClubModalFormComponent } from '../club-modal-form/club-modal-form.component';
+import { MapService } from '@app/dashboard/services/map.service';
 
 @Component({
   selector: 'app-club-content',
@@ -26,7 +27,8 @@ export class ClubContentComponent {
     private router: Router,
     private activatedRoute: ActivatedRoute,
     private store: Store,
-    private dialog: MatDialog
+    private dialog: MatDialog,
+    private mapService: MapService
   ) {}
 
   openFormDialog(club: SportClub): void {
@@ -54,5 +56,10 @@ export class ClubContentComponent {
   deleteItem(id: number): void {
     this.store.dispatch(ClubActions.deleteClub({ id }));
     void this.router.navigate(['/']);
+  }
+
+  return(): void {
+    void this.router.navigate(['/']);
+    this.mapService.zoomOut();
   }
 }

@@ -7,8 +7,7 @@ import {
 import { Store } from '@ngrx/store';
 import { ClubSelectors, State } from '../../state';
 import { Observable, Subject } from 'rxjs';
-import { SportClub } from '@core/models/sport-club.interface';
-import { MapService } from '@core/services/map.service';
+import { MapService } from '../../services/map.service';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatSort } from '@angular/material/sort';
 import { filter, takeUntil } from 'rxjs/operators';
@@ -16,6 +15,7 @@ import { SelectionModel } from '@angular/cdk/collections';
 import { ModalEnum } from '@core/models/modal.enum';
 import { MatDialog } from '@angular/material/dialog';
 import { ClubModalFormComponent } from '../club-modal-form/club-modal-form.component';
+import { SportClub } from '@core/models/sport-club.interface';
 
 @Component({
   selector: 'app-club-list',
@@ -68,14 +68,11 @@ export class ClubListComponent implements OnDestroy, AfterContentInit {
       panelClass: 'custom-dialog-container'
     });
 
-    dialogRef
-      .afterClosed()
-      .pipe(
-        filter((result: ModalEnum) => {
-          return result === ModalEnum.CONFIRM;
-        })
-      )
-      .subscribe(() => console.log('dodaje'));
+    dialogRef.afterClosed().pipe(
+      filter((result: ModalEnum) => {
+        return result === ModalEnum.CONFIRM;
+      })
+    );
   }
 
   applyFilter(event: Event): void {

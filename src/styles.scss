@@ -59,4 +59,9 @@ body {
 .mat-menu-content-link {
   color: $primary-color;
   text-decoration: none;
+  display: block;
+}
+
+textarea.mat-input-element {
+  height: 200px;
 }

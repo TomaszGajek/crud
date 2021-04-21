@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { DashboardRoutingModule } from './dashboard-routing.module';
 import { ClubsComponent } from './containers/clubs/clubs.component';
-import { SharedModule } from '../shared/shared.module';
+import { SharedModule } from '@shared/shared.module';
 import { StoreModule } from '@ngrx/store';
 import { clubReducer } from './state/club.reducer';
 import { EffectsModule } from '@ngrx/effects';

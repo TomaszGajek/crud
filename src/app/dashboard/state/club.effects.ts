@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
-import { SportClubsService } from '@core/services/sport-clubs.service';
 import * as ClubActions from './club.actions';
 import { catchError, concatMap, map, mergeMap } from 'rxjs/operators';
 import { of } from 'rxjs';
 import { SportClub } from '@core/models/sport-club.interface';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { SportClubsService } from '@app/dashboard/services/sport-clubs.service';
 
 @Injectable()
 export class ClubEffects {

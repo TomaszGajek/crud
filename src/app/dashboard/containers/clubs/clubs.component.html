@@ -1,7 +1,9 @@
 <mat-drawer-container *ngIf="clubs$ | async as clubs; else errorContainer" class="sport-clubs-container">
   <mat-drawer mode="side" opened class="sidenav">
     <mat-nav-list>
-      <router-outlet></router-outlet>
+      <div [@routeAnimations]="prepareRoute(outlet)">
+        <router-outlet #outlet="outlet"></router-outlet>
+      </div>
     </mat-nav-list>
   </mat-drawer>
   <mat-drawer-content class="map-content">

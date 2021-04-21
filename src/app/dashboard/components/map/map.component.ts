@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
-import { MapService } from '../../../core/services/map.service';
+import { MapService } from '../../services/map.service';
 import { SportClub } from '../../../core/models/sport-club.interface';
 
 @Component({

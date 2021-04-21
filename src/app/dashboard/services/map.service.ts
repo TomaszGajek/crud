@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import * as mapboxgl from 'mapbox-gl';
 import { environment } from '../../../environments/environment';
-import { SportClub } from '../models/sport-club.interface';
+import { SportClub } from '@core/models/sport-club.interface';
 import { Router } from '@angular/router';
-import { Coordinates } from '../models/coordinates.interface';
+import { Coordinates } from '@core/models/coordinates.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -44,7 +44,7 @@ export class MapService {
             type: 'Feature',
             properties: {
               id: item.id,
-              description: `<strong>${item.name}</strong><p>${item.description}</p>`
+              description: `<strong>${item.name}</strong><p>category: ${item.category}</p><p>${item.localization.place_name}</p>`
             },
             geometry: {
               type: 'Point',
@@ -87,6 +87,13 @@ export class MapService {
     this.map.flyTo({
       center: [lng, lat],
       zoom: 10
+    });
+  }
+
+  zoomOut(): void {
+    this.map.flyTo({
+      center: [21.017532, 52.237049],
+      zoom: 5
     });
   }
 

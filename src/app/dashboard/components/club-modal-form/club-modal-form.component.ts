@@ -11,11 +11,11 @@ import {
 } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 import { LocalizationResponse } from '@core/models/localization-response.interface';
-import { MapSearchService } from '@core/services/map-search.service';
 import { Store } from '@ngrx/store';
 import { SportClub } from '@core/models/sport-club.interface';
 import { ClubActions } from '../../state';
 import { Localization } from '@core/models/localization.interface';
+import { MapSearchService } from '@app/dashboard/services/map-search.service';
 
 @Component({
   selector: 'app-club-modal-form',
@@ -55,6 +55,8 @@ export class ClubModalFormComponent implements OnInit {
       filter((value) => !!value),
       switchMap((value: string) => this.mapSearchService.querySearch(value))
     );
+
+    this.form.valueChanges.subscribe((x) => console.log(this.form));
   }
 
   createForm(): void {
