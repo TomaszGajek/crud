@@ -13,12 +13,12 @@
     {
       "id": 2,
       "name": "Czarni Słupsk",
+      "category": "boxing",
+      "description": "Klub bokserski. Sekcje dla amatorów, różne grupy wiekowe",
       "localization": {
-        "center": [17.024825386957286, 54.462648351482144],
-        "place_name": "Test"
-      },
-      "category": "basketball",
-      "description": "Klub koszykarski. Sekcje dla amatorów, różne grupy wiekowe"
+        "place_name": "Ogrodowa 5a, 76-200 Słupsk, Pomeranian Voivodeship, Poland",
+        "center": [17.0248674, 54.4627561]
+      }
     },
     {
       "id": 3,
@@ -41,14 +41,24 @@
       "description": "Klub piłkarski grający w 1 lidze, założony w 1929 roku."
     },
     {
+      "id": 5,
       "name": "Olimpia Grudziądz",
       "category": "football",
-      "description": "asdasad",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Pellentesque adipiscing commodo elit at imperdiet dui accumsan. Aliquam sem fringilla ut morbi tincidunt augue interdum velit euismod. Ultrices mi tempus imperdiet nulla malesuada pellentesque. Eu sem integer vitae justo eget magna fermentum iaculis. Tortor condimentum lacinia quis vel eros donec ac odio tempor. Risus feugiat in ante metus dictum at. Amet nulla facilisi morbi tempus iaculis urna id volutpat. Amet venenatis urna cursus eget. Praesent tristique magna sit amet purus gravida. Tristique sollicitudin nibh sit amet. Mi ipsum faucibus vitae aliquet nec ullamcorper sit amet. Arcu odio ut sem nulla pharetra diam sit.\n\nFelis bibendum ut tristique et egestas. Consectetur adipiscing elit pellentesque habitant morbi tristique. In ante metus dictum at. Nec ullamcorper sit amet risus nullam. Nunc sed augue lacus viverra vitae congue eu consequat ac. Massa enim nec dui nunc mattis enim ut tellus elementum. Sit amet venenatis urna cursus eget nunc scelerisque. Sed viverra ipsum nunc aliquet. Dui ut ornare lectus sit amet est placerat. Maecenas ultricies mi eget mauris pharetra et ultrices. Tempus iaculis urna id volutpat lacus. Erat imperdiet sed euismod nisi porta lorem. Massa placerat duis ultricies lacus sed. Risus in hendrerit gravida rutrum quisque non.",
       "localization": {
         "place_name": "Marszałka Józefa Piłsudskiego 12, 86-300 Grudziądz, Kuyavian-Pomeranian Voivodeship, Poland",
         "center": [18.756465, 53.488816]
-      },
-      "id": 5
+      }
+    },
+    {
+      "id": 6,
+      "name": "Szczecin Pogoń",
+      "category": "football",
+      "description": "Coś tam coś tam",
+      "localization": {
+        "place_name": "Toruńska, 70-841 Szczecin, West Pomeranian Voivodeship, Poland",
+        "center": [14.6779183, 53.3998004]
+      }
     }
   ]
 }

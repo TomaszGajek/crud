@@ -27,9 +27,16 @@ export class SportClubsService {
       .pipe(catchError(this.handleError));
   }
 
+  updateClub(club: SportClub): Observable<SportClub> {
+    console.log(club);
+
+    return this.http
+      .put<SportClub>(`${this.url}/${club.id}`, club)
+      .pipe(catchError(this.handleError));
+  }
+
   private handleError(err: HttpErrorResponse) {
     const errorMessage = `Backend returned code ${err.status}: ${err.message}`;
-    console.log(errorMessage);
 
     return throwError(errorMessage);
   }

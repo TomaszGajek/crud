@@ -15,6 +15,7 @@ import { MapSearchService } from '../../../core/services/map-search.service';
 import { Store } from '@ngrx/store';
 import { SportClub } from '../../../core/models/sport-club.interface';
 import { ClubActions } from '../../state';
+import { Localization } from '../../../core/models/localization.interface';
 
 @Component({
   selector: 'app-club-modal-form',
@@ -65,9 +66,7 @@ export class ClubModalFormComponent implements OnInit {
     });
 
     if (this.club) {
-      this.form
-        .get('localization')
-        .setValue({ place_name: this.club.localization.place_name });
+      this.form.get('localization').setValue(this.club.localization);
     }
   }
 
@@ -83,12 +82,11 @@ export class ClubModalFormComponent implements OnInit {
       category,
       description
     }: Pick<SportClub, 'name' | 'category' | 'description'> = this.form.value;
-    const {
-      place_name,
-      center
-    }: { place_name: string; center: number[] } = this.form.value.localization;
 
-    const club: Omit<SportClub, 'id'> = {
+    const { place_name, center }: Localization = this.form.value.localization;
+
+    const club: SportClub = {
+      id: this.club ? this.club.id : null,
       name,
       category,
       description,
@@ -98,7 +96,9 @@ export class ClubModalFormComponent implements OnInit {
       }
     };
 
-    this.store.dispatch(ClubActions.addClub({ club }));
+    this.club
+      ? this.store.dispatch(ClubActions.updateClub({ club }))
+      : this.store.dispatch(ClubActions.addClub({ club }));
   }
 
   save(): void {

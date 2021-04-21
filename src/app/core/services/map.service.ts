@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core';
 import * as mapboxgl from 'mapbox-gl';
 import { environment } from '../../../environments/environment';
 import { SportClub } from '../models/sport-club.interface';
-import { Localization } from '../models/localization.interface';
 import { Router } from '@angular/router';
+import { Coordinates } from '../models/coordinates.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -82,7 +82,7 @@ export class MapService {
     this.handleMarkerClickEvent();
   }
 
-  flyToSelectedPoint({ lng, lat }: Localization): void {
+  flyToSelectedPoint({ lng, lat }: Coordinates): void {
     this.map.fire('flyend');
     this.map.flyTo({
       center: [lng, lat],
@@ -92,7 +92,7 @@ export class MapService {
 
   handleMarkerMouseEnterEvent(): void {
     this.map.on('mouseenter', 'places', (e) => {
-      const coordinates: Localization = e.lngLat;
+      const coordinates: Coordinates = e.lngLat;
       // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
       const description: string = e.features[0].properties.description;
 

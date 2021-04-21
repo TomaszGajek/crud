@@ -1,4 +1,4 @@
 export interface Localization {
-  lng: number;
-  lat: number;
+  center: [number, number];
+  place_name: string;
 }

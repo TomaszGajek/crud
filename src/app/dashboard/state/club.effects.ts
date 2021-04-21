@@ -55,6 +55,30 @@ export class ClubEffects {
     );
   });
 
+  updateClub$ = createEffect(() => {
+    return this.actions$.pipe(
+      ofType(ClubActions.updateClub),
+      concatMap((action) =>
+        this.clubsService.updateClub(action.club).pipe(
+          map((club) => {
+            this.snackBarService.open('Success', 'You updated the club', {
+              duration: this.snackBarDuration
+            });
+
+            return ClubActions.updateClubSuccess({ club });
+          }),
+          catchError((error) => {
+            this.snackBarService.open('Error', 'Failed to update item', {
+              duration: this.snackBarDuration
+            });
+
+            return of(ClubActions.updateClubFailure({ error }));
+          })
+        )
+      )
+    );
+  });
+
   deleteClubs$ = createEffect(() => {
     return this.actions$.pipe(
       ofType(ClubActions.deleteClub),

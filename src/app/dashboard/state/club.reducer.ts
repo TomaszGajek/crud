@@ -66,5 +66,25 @@ export const clubReducer = createReducer<ClubState>(
         clubs
       };
     }
+  ),
+  on(
+    ClubActions.addClubFailure,
+    (state, action): ClubState => {
+      return {
+        ...state,
+        error: action.error
+      };
+    }
+  ),
+  on(
+    ClubActions.updateClubSuccess,
+    (state, action): ClubState => {
+      return {
+        ...state,
+        clubs: state.clubs.map((club) =>
+          club.id === action.club.id ? action.club : club
+        )
+      };
+    }
   )
 );
