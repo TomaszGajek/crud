@@ -1,4 +1,5 @@
 $iconSize: 50px;
+$mat-icon-color: #fff;
 
 .mat-toolbar {
   display: flex;
@@ -7,7 +8,7 @@ $iconSize: 50px;
 
 .mat-icon {
   font-size: 30px;
-  color: #fff;
+  color: $mat-icon-color;
   background: transparent;
   width: $iconSize;
   height: $iconSize;
