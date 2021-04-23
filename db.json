@@ -59,16 +59,6 @@
         "place_name": "Toruńska, 70-841 Szczecin, West Pomeranian Voivodeship, Poland",
         "center": [14.6779183, 53.3998004]
       }
-    },
-    {
-      "id": 7,
-      "name": "asdasdas",
-      "category": "basketball",
-      "description": "asdasdasd",
-      "localization": {
-        "place_name": "Grudziądz, Kuyavian-Pomeranian Voivodeship, Poland",
-        "center": [18.77611, 53.4925]
-      }
     }
   ]
 }

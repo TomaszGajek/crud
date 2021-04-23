@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { MapService } from '../../services/map.service';
-import { SportClub } from '../../../core/models/sport-club.interface';
+import { SportClub } from '@core/models/sport-club.interface';
 
 @Component({
   selector: 'app-map',
