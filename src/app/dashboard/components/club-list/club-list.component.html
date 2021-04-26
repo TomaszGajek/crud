@@ -2,6 +2,7 @@
     <button
       (click)="addClub()"
       mat-menu-item
+      class="add-club-button"
     >
       <mat-icon>library_add</mat-icon>
       Add Club
@@ -44,6 +45,7 @@
         columns: displayedColumns;"
         (click)="handleSelectedClub(club); selection.toggle(club)"
         [ngClass]="{ highlighted: selection.isSelected(club)}"
+        class="mat-row-action"
     ></tr>
 
     <tr class="mat-row" *matNoDataRow>

@@ -1,11 +1,4 @@
-import {
-  AfterViewChecked,
-  ChangeDetectorRef,
-  Component,
-  OnDestroy,
-  OnInit,
-  ViewChild
-} from '@angular/core';
+import { AfterViewChecked, ChangeDetectorRef, Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { ClubSelectors, ClubActions, State } from '../../state';
 import { Observable, Subject } from 'rxjs';
@@ -54,9 +47,7 @@ export class ClubsComponent implements OnInit, AfterViewChecked, OnDestroy {
     this.drawerService
       .getDrawerState()
       .pipe(takeUntil(this.subGuard$))
-      .subscribe((status: boolean) =>
-        status ? this.drawer.close() : this.drawer.open()
-      );
+      .subscribe((status: boolean) => (status ? this.drawer.close() : this.drawer.open()));
   }
 
   ngAfterViewChecked(): void {
@@ -72,10 +63,6 @@ export class ClubsComponent implements OnInit, AfterViewChecked, OnDestroy {
     if (this.smallDevice) {
       return;
     }
-    return (
-      outlet &&
-      outlet.activatedRouteData &&
-      outlet.activatedRouteData['animation']
-    );
+    return outlet && outlet.activatedRouteData && outlet.activatedRouteData['animation'];
   }
 }
