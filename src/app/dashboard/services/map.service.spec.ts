@@ -4,7 +4,7 @@ import { MapService } from './map.service';
 import { Router } from '@angular/router';
 import { SportClub } from '@core/models/sport-club.interface';
 import { SportCategories } from '@core/models/sport-categories.enum';
-import { ACCESS_TOKEN } from '@app/app.config';
+import { accessTokenProvider } from '@core/core.module';
 
 describe('MapService', () => {
   let service: MapService;
@@ -23,13 +23,7 @@ describe('MapService', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [
-        { provide: Router, useValue: {} },
-        {
-          provide: ACCESS_TOKEN,
-          useValue: ''
-        }
-      ]
+      providers: [{ provide: Router, useValue: {} }, accessTokenProvider]
     });
     service = TestBed.inject(MapService);
 

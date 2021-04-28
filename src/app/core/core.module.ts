@@ -5,9 +5,14 @@ import { HttpClientModule } from '@angular/common/http';
 import { ACCESS_TOKEN } from '@app/app.config';
 import { environment } from '../../environments/environment';
 
+export const accessTokenProvider = {
+  provide: ACCESS_TOKEN,
+  useValue: environment.mapbox.accessToken
+};
+
 @NgModule({
   declarations: [],
   imports: [BrowserModule, HttpClientModule, BrowserAnimationsModule],
-  providers: [{ provide: ACCESS_TOKEN, useValue: environment.mapbox.accessToken }]
+  providers: [accessTokenProvider]
 })
 export class CoreModule {}

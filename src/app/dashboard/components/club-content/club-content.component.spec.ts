@@ -9,7 +9,7 @@ import { SportClub } from '@core/models/sport-club.interface';
 import { SportCategories } from '@core/models/sport-categories.enum';
 import { getClubById } from '@app/dashboard/state/club.selectors';
 import { deleteClub } from '../../state/club.actions';
-import { ACCESS_TOKEN } from '../../../app.config';
+import { accessTokenProvider } from '@core/core.module';
 
 describe('ClubContentComponent', () => {
   let component: ClubContentComponent;
@@ -55,10 +55,7 @@ describe('ClubContentComponent', () => {
           provide: MatDialog,
           useValue: mockMatDialog
         },
-        {
-          provide: ACCESS_TOKEN,
-          useValue: ''
-        },
+        accessTokenProvider,
         provideMockStore({ initialState })
       ]
     }).compileComponents();
