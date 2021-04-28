@@ -7,7 +7,7 @@ import { RouterOutlet } from '@angular/router';
 import { slideInAnimation } from '@app/dashboard/animations';
 import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
 import { MatDrawer } from '@angular/material/sidenav';
-import { map, takeUntil, tap } from 'rxjs/operators';
+import { map, share, takeUntil, tap } from 'rxjs/operators';
 import { DrawerService } from '@app/dashboard/services/drawer.service';
 import { SMALL_WIDTH_BREAKPOINT } from '@core/models/breakpoints.constants';
 
@@ -41,7 +41,7 @@ export class ClubsComponent implements OnInit, AfterViewChecked, OnDestroy {
 
   ngOnInit(): void {
     this.store.dispatch(ClubActions.loadClubs());
-    this.clubs$ = this.store.select(ClubSelectors.getClubs);
+    this.clubs$ = this.store.select(ClubSelectors.getClubs).pipe(share(), tap(console.log));
     this.errorMessage$ = this.store.select(ClubSelectors.getError);
 
     this.drawerService
@@ -61,7 +61,7 @@ export class ClubsComponent implements OnInit, AfterViewChecked, OnDestroy {
 
   prepareRoute(outlet: RouterOutlet): RouterOutlet {
     if (this.smallDevice) {
-      return outlet;
+      return;
     }
     return outlet && outlet.activatedRouteData && outlet.activatedRouteData['animation'];
   }

@@ -8,7 +8,7 @@ export interface ClubState {
 }
 
 const initialState: ClubState = {
-  clubs: [],
+  clubs: null,
   error: ''
 };
 
@@ -37,9 +37,7 @@ export const clubReducer = createReducer<ClubState>(
   on(
     ClubActions.deleteClubSuccess,
     (state, action): ClubState => {
-      const clubs: SportClub[] = state.clubs.filter(
-        (club) => club.id !== action.id
-      );
+      const clubs: SportClub[] = state.clubs.filter((club) => club.id !== action.id);
 
       return {
         ...state,
@@ -81,9 +79,7 @@ export const clubReducer = createReducer<ClubState>(
     (state, action): ClubState => {
       return {
         ...state,
-        clubs: state.clubs.map((club) =>
-          club.id === action.club.id ? action.club : club
-        )
+        clubs: state.clubs.map((club) => (club.id === action.club.id ? action.club : club))
       };
     }
   )

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { SportClub } from '@core/models/sport-club.interface';
 import { Observable, throwError } from 'rxjs';
-import { catchError } from 'rxjs/operators';
+import { catchError, delay } from 'rxjs/operators';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { SportClubsService } from '@app/dashboard/services/sport-clubs.service';
 
@@ -12,7 +12,7 @@ export class HttpSportClubsService implements SportClubsService {
   constructor(private http: HttpClient) {}
 
   getClubs(): Observable<SportClub[]> {
-    return this.http.get<SportClub[]>(this.url).pipe(catchError(this.handleError));
+    return this.http.get<SportClub[]>(this.url).pipe(delay(1000), catchError(this.handleError));
   }
 
   deleteClub(id: number): Observable<void> {

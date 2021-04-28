@@ -22,34 +22,41 @@
     <mat-label>Filter</mat-label>
     <input matInput (keyup)="applyFilter($event)" placeholder="Write value" #input>
   </mat-form-field>
-  <table mat-table [dataSource]="dataSource" matSort>
+  <ng-container *ngIf="dataSource; else loading">
+    <table mat-table [dataSource]="dataSource" matSort>
 
-    <ng-container matColumnDef="id">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
-      <td mat-cell *matCellDef="let club"> {{club.id}} </td>
-    </ng-container>
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
+        <td mat-cell *matCellDef="let club"> {{club.id}} </td>
+      </ng-container>
 
-    <ng-container matColumnDef="name">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
-      <td mat-cell *matCellDef="let club"> {{club.name}} </td>
-    </ng-container>
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
+        <td mat-cell *matCellDef="let club"> {{club.name}} </td>
+      </ng-container>
 
-    <ng-container matColumnDef="category">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header> Category </th>
-      <td mat-cell *matCellDef="let club"> {{club.category}} </td>
-    </ng-container>
+      <ng-container matColumnDef="category">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Category </th>
+        <td mat-cell *matCellDef="let club"> {{club.category}} </td>
+      </ng-container>
 
-    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row
-        *matRowDef="let club;
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row
+          *matRowDef="let club;
         columns: displayedColumns;"
-        (click)="handleSelectedClub(club); selection.toggle(club)"
-        [ngClass]="{ highlighted: selection.isSelected(club)}"
-        class="mat-row-action"
-    ></tr>
+          (click)="handleSelectedClub(club); selection.toggle(club)"
+          [ngClass]="{ highlighted: selection.isSelected(club)}"
+          class="mat-row-action"
+      ></tr>
 
-    <tr class="mat-row" *matNoDataRow>
-      <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
-    </tr>
-  </table>
+      <tr class="mat-row" *matNoDataRow>
+        <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+      </tr>
+    </table>
+  </ng-container>
+  <ng-template #loading>
+    <div class="mat-spinner-wrapper">
+      <mat-spinner></mat-spinner>
+    </div>
+  </ng-template>
 </div>

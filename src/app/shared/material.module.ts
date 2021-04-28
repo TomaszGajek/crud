@@ -16,6 +16,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatSelectModule } from '@angular/material/select';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatCardModule } from '@angular/material/card';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 const MODULES = [
   MatSidenavModule,
@@ -32,7 +33,8 @@ const MODULES = [
   MatSnackBarModule,
   MatSelectModule,
   MatAutocompleteModule,
-  MatCardModule
+  MatCardModule,
+  MatProgressSpinnerModule
 ];
 
 @NgModule({

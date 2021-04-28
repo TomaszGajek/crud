@@ -13,7 +13,6 @@ export class ClubEffects {
 
   constructor(
     private actions$: Actions,
-    // private clubsService: HttpSportClubsService,
     private snackBarService: MatSnackBar,
     @Inject(SPORT_CLUBS) private clubsService: SportClubsService
   ) {}

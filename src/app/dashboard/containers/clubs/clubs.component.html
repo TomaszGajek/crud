@@ -1,4 +1,4 @@
-<mat-drawer-container *ngIf="clubs$ | async as clubs; else errorContainer" class="sport-clubs-container" autosize>
+<mat-drawer-container class="sport-clubs-container" autosize>
   <mat-drawer
     #drawer
     [opened]="(isScreenSmall$ | async) === false"
@@ -11,12 +11,14 @@
     </mat-nav-list>
   </mat-drawer>
   <mat-drawer-content class="map-content">
-    <app-map [clubs]="clubs"></app-map>
-    <button mat-button (click)="drawer.toggle()" class="button-drawer">
-      <mat-icon>more_vert</mat-icon>
-    </button>
+    <ng-container *ngIf="clubs$ | async as clubs; else loader">
+      <app-map [clubs]="clubs"></app-map>
+      <button mat-button (click)="drawer.toggle()" class="button-drawer">
+        <mat-icon>more_vert</mat-icon>
+      </button>
+    </ng-container>
+    <ng-template #loader>
+      <mat-spinner class="map-spinner"></mat-spinner>
+    </ng-template>
   </mat-drawer-content>
 </mat-drawer-container>
-<ng-template #errorContainer>
-  <p>{{ errorMessage$ | async }}</p>
-</ng-template>
