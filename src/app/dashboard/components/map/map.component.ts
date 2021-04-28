@@ -11,7 +11,7 @@ import { SportClub } from '@core/models/sport-club.interface';
 export class MapComponent {
   @Input() set clubs(value: SportClub[]) {
     if (value.length > 0) {
-      this.mapService.init(21.017532, 52.237049, 5, 'map', value);
+      this.mapService.init(19.476951, 52.168837, 5, 'map', value);
     }
   }
   constructor(private mapService: MapService) {}

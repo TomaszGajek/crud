@@ -1,10 +1,5 @@
-import {
-  Component,
-  AfterContentInit,
-  OnDestroy,
-  ViewChild,
-  OnInit
-} from '@angular/core';
+import { Component, AfterContentInit, OnDestroy, ViewChild, OnInit } from '@angular/core';
+
 import { Store } from '@ngrx/store';
 import { ClubSelectors, State } from '../../state';
 import { Observable, Subject } from 'rxjs';

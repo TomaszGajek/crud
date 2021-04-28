@@ -1,10 +1,11 @@
-import { Injectable } from '@angular/core';
+import { Inject, Injectable } from '@angular/core';
 import * as mapboxgl from 'mapbox-gl';
 import { environment } from '../../../environments/environment';
 import { SportClub } from '@core/models/sport-club.interface';
 import { Router } from '@angular/router';
 import { Coordinates } from '@core/models/coordinates.interface';
 import { DrawerService } from '@app/dashboard/services/drawer.service';
+import { ACCESS_TOKEN } from '@app/app.config';
 
 @Injectable({
   providedIn: 'root'
@@ -14,17 +15,15 @@ export class MapService {
   private popup: mapboxgl.Popup;
   private style = 'mapbox://styles/mapbox/streets-v11';
 
-  constructor(private router: Router, private drawerService: DrawerService) {}
+  constructor(
+    private router: Router,
+    private drawerService: DrawerService,
+    @Inject(ACCESS_TOKEN) private accessToken: string
+  ) {}
 
-  init(
-    lng: number,
-    lat: number,
-    zoom: number,
-    container: string,
-    items: SportClub[]
-  ): void {
+  init(lng: number, lat: number, zoom: number, container: string, items: SportClub[]): void {
     this.map = new mapboxgl.Map({
-      accessToken: environment.mapbox.accessToken,
+      accessToken: this.accessToken,
       container,
       style: this.style,
       zoom,
@@ -49,10 +48,7 @@ export class MapService {
             },
             geometry: {
               type: 'Point',
-              coordinates: [
-                item.localization.center[0],
-                item.localization.center[1]
-              ]
+              coordinates: [item.localization.center[0], item.localization.center[1]]
             }
           }))
         }
@@ -87,7 +83,7 @@ export class MapService {
     this.map.fire('flyend');
     this.map.flyTo({
       center: [lng, lat],
-      zoom: 10
+      zoom: 15
     });
   }
 

@@ -47,7 +47,7 @@ export class ClubsComponent implements OnInit, AfterViewChecked, OnDestroy {
     this.drawerService
       .getDrawerState()
       .pipe(takeUntil(this.subGuard$))
-      .subscribe((status: boolean) => (status ? this.drawer.close() : this.drawer.open()));
+      .subscribe((status: boolean) => void (status ? this.drawer.close() : this.drawer.open()));
   }
 
   ngAfterViewChecked(): void {
@@ -61,7 +61,7 @@ export class ClubsComponent implements OnInit, AfterViewChecked, OnDestroy {
 
   prepareRoute(outlet: RouterOutlet): RouterOutlet {
     if (this.smallDevice) {
-      return;
+      return outlet;
     }
     return outlet && outlet.activatedRouteData && outlet.activatedRouteData['animation'];
   }
