@@ -4,7 +4,7 @@ import { ClubContentComponent } from '@app/dashboard/components/club-content/clu
 import createSpyObj = jasmine.createSpyObj;
 import { MockStore, provideMockStore } from '@ngrx/store/testing';
 import { MatDialog } from '@angular/material/dialog';
-import { EMPTY, of } from 'rxjs';
+import { of } from 'rxjs';
 import { SportClub } from '@core/models/sport-club.interface';
 import { SportCategories } from '@core/models/sport-categories.enum';
 import { getClubById } from '@app/dashboard/state/club.selectors';
