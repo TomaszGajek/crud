@@ -5,6 +5,7 @@
     [mode]="(isScreenSmall$ | async) ? 'over' : 'side'"
     class="sidenav">
     <mat-nav-list class="sport-clubs-list">
+      <app-image></app-image>
       <div [@routeAnimations]="prepareRoute(outlet)">
         <router-outlet #outlet="outlet"></router-outlet>
       </div>

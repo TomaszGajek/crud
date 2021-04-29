@@ -45,7 +45,9 @@ export class ClubListComponent implements OnInit, OnDestroy, AfterContentInit {
     this.breakpointObserver
       .observe([`(max-width: ${SMALL_WIDTH_BREAKPOINT}px)`])
       .pipe(takeUntil(this.subGuard$))
-      .subscribe((state) => (this.smallDevice = state.matches));
+      .subscribe((state) => {
+        this.smallDevice = state.matches;
+      });
   }
 
   ngAfterContentInit(): void {

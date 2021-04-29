@@ -1,6 +1,5 @@
 import { TestBed } from '@angular/core/testing';
 
-import { HttpSportClubsService } from './http-sport-clubs.service';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { SportClub } from '@core/models/sport-club.interface';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
