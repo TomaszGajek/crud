@@ -13,6 +13,7 @@ import { ClubContentComponent } from './components/club-content/club-content.com
 import { ClubListComponent } from './components/club-list/club-list.component';
 import { ToolbarComponent } from './components/toolbar/toolbar.component';
 import { ClubModalFormComponent } from './components/club-modal-form/club-modal-form.component';
+import { Features } from '@core/models/features.enum';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,7 @@ import { ClubModalFormComponent } from './components/club-modal-form/club-modal-
     CommonModule,
     DashboardRoutingModule,
     SharedModule,
-    StoreModule.forFeature('clubs', clubReducer),
+    StoreModule.forFeature(Features.Clubs, clubReducer),
     EffectsModule.forFeature([ClubEffects])
   ]
 })
