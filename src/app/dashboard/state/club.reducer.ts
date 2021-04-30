@@ -15,22 +15,23 @@ const initialState: ClubState = {
 export const clubReducer = createReducer<ClubState>(
   initialState,
   on(
-    ClubActions.loadClubsSuccessful,
+    ClubActions.loadDataSuccess,
     (state, action): ClubState => {
+      console.log(action);
       return {
         ...state,
-        clubs: action.clubs,
+        clubs: action.payload.clubs,
         error: ''
       };
     }
   ),
   on(
-    ClubActions.loadClubsFailure,
+    ClubActions.loadDataError,
     (state, action): ClubState => {
       return {
         ...state,
         clubs: null,
-        error: action.error
+        error: action.payload.error
       };
     }
   ),

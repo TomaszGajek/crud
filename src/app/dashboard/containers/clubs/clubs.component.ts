@@ -40,7 +40,7 @@ export class ClubsComponent implements OnInit, AfterViewChecked, OnDestroy {
   ) {}
 
   ngOnInit(): void {
-    this.store.dispatch(ClubActions.loadClubs());
+    this.store.dispatch(ClubActions.loadData());
     this.clubs$ = this.store.select(ClubSelectors.getClubs).pipe(share(), tap(console.log));
     this.errorMessage$ = this.store.select(ClubSelectors.getError);
 

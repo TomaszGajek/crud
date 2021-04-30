@@ -19,11 +19,16 @@ export class ClubEffects {
 
   loadClubs$ = createEffect(() => {
     return this.actions$.pipe(
-      ofType(ClubActions.loadClubs),
+      ofType(ClubActions.loadData),
       mergeMap(() =>
-        this.clubsService.getClubs().pipe(map((clubs: SportClub[]) => ClubActions.loadClubsSuccessful({ clubs })))
+        this.clubsService.getClubs().pipe(
+          map((clubs: SportClub[]) => {
+            console.log(clubs);
+            return ClubActions.loadDataSuccess({ clubs });
+          })
+        )
       ),
-      catchError((error: string) => of(ClubActions.loadClubsFailure({ error })))
+      catchError((error: string) => of(ClubActions.loadDataError({ error })))
     );
   });
 
